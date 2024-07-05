@@ -83,8 +83,6 @@ jupyter notebook telco-customer-churn-prediction.ipynb
 
 ## Output
 
-### Churn
-
 ![image](https://github.com/chyash1110/customer_churn_prediction/assets/118417410/6174f2de-0eae-4498-a9dc-75aaca90a54f)
 ![image](https://github.com/chyash1110/customer_churn_prediction/assets/118417410/7c606135-00e3-456f-a679-6b1c70498d14)
 
