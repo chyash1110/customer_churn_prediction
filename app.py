@@ -9,11 +9,9 @@ import pickle
 
 app = Flask(__name__)
 
-# Load the trained model (Assuming you have saved the model as model.pkl)
 with open('model.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
 
-# Preprocessing function
 def preprocess_data(data):
     # Replace 'No internet service' and 'No phone service' with 'No'
     tobe_cleaned_cols = ['OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies']
@@ -39,17 +37,17 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    # Get data from form
+    
     data = request.form.to_dict(flat=True)
     data = pd.DataFrame([data])
+
     
-    # Preprocess the data
     data = preprocess_data(data)
+
     
-    # Make prediction
     prediction = model.predict(data)
+
     
-    # Return result
     result = 'Churn' if prediction[0] == 1 else 'No Churn'
     return jsonify(result=result)
 
